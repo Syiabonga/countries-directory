@@ -1,9 +1,23 @@
 <template>
-  <div class="countries">
-      <div class="country" v-for="country in allCountries" :key="country.name">
-          <h3>{{country.name}}</h3>
-          <button type="button" class="btn btn-primary">Primary</button>
-      </div>
+  <div class="container-fluid">
+      <div class="row text-center" >
+          <div class="col-md-4 col-style" v-for="country in allCountries" :key="country.name">
+              <div class="card card-style" style="width: 18rem;">
+                <img :src=country.flag class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{country.name}}</h5>
+                    <p class="card-text">
+                        <ul>
+                            <li>Capital: {{country.capital}}</li>
+                            <li>Region: {{country.region}}</li>
+                            <li>Area: {{country.area}} km²</li>
+                        </ul>
+                    </p>
+                    <a href="#" class="btn btn-danger">delete</a>
+                </div>
+                </div>
+          </div>
+        </div>
   </div>
 </template>
 
@@ -23,5 +37,11 @@ export default {
 </script>
 
 <style>
+.card-style{
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
 
 </style>
