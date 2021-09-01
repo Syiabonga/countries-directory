@@ -20,8 +20,14 @@ const actions = {
     async deleteCountry({commit}, name){
         const response = await axios.delete(`https://restcountries.eu/rest/v2/name/${name}`);
         commit('removeCountry', name)
+    },
+    //function to filter countries by number
+    async filterCountries({commit}, e){
+        const region = e.target.options[e.target.options.selectedIndex].innerText;
+        const response = await axios.get(`https://restcountries.eu/rest/v2/region/${region}`);
+        commit('setCountries', response.data);
     }
-    //function to filter countries
+    //filter to filter by continent
 };
 
 const mutations = {
