@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-      <div class="row text-center" >
+      <div class="row text-center bg-pic" >
           <div class="col-md-4 col-style" v-for="country in allCountries" :key="country.name">
               <div class="card card-style" style="width: 18rem;">
                 <img :src=country.flag class="card-img-top" alt="...">
@@ -13,7 +13,6 @@
                             <li>Area: {{country.area}} km²</li>
                         </ul>
                     </p>
-                    <a href="#" class="btn btn-danger">delete</a>
                 </div>
                 </div>
           </div>
@@ -36,12 +35,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card-style{
     margin: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto 
 }
-
+.card{
+    min-height: 350px;
+}
+.bg-pic{
+    background-image: url("../assets/img3.jpg");
+    min-height: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ul{
+    text-align: left;
+}
 </style>

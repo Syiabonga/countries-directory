@@ -16,25 +16,17 @@ const actions = {
         const response = await axios.get('https://restcountries.eu/rest/v2/all');
         commit('setCountries',response.data);
     },
-    //function to delete a country
-    async deleteCountry({commit}, name){
-        const response = await axios.delete(`https://restcountries.eu/rest/v2/name/${name}`);
-        commit('removeCountry', name)
-    },
-    //function to filter countries by number
+    //function to filter by continent
     async filterCountries({commit}, e){
         const region = e.target.options[e.target.options.selectedIndex].innerText;
         const response = await axios.get(`https://restcountries.eu/rest/v2/region/${region}`);
         commit('setCountries', response.data);
     }
-    //filter to filter by continent
 };
 
 const mutations = {
     //Send all the countries to the state array
-    setCountries: (state, countries) => (state.countries = countries),
-    removeCountry: (state, name) => 
-        (state.countries = states.countries.filter(country => country.name !== name))
+    setCountries: (state, countries) => (state.countries = countries)
 };
 
 export default {
